@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Map Tap Weather</string>
+    <string name="action_settings">Settings</string>
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Message Strings -->
+    <string name="error_mess_api_null_pointer">Call to WeatherService API has returned a null :</string>
+    <string name="error_mess_api_failure_response">"API reporting a failure response : "</string>
+    <string name="error_mess_db_failure">"Failure reading persisted database "</string>
+    <string name="error_mess_db_no_weather_data">No weather data to show</string>
+    <string name="error_mess_db_cannot_clear">Cannot clear data from Persisted Weather database, therefore cannot persist API data!!</string>
+    <string name="error_mess_db_cannot_write">Could not write persisted Weather data to database</string>
+    <string name="error_mess_db_read_exception">"persisted database threw exception : "</string>
+    <string name="error_mess_api_no_internet">Device not connected to internet. Cannot read current weather data</string>
+    <string name="error_mess_api_unsuccessful_response">API reporting an unsuccessful response. status=</string>
+    <string name="message_no_weather_data_to_show">No weather data to show</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="preference_error_max_locations_prefix">"Number of locations must be "</string>
+    <string name="preference_error_max_locations_postfix">" or fewer"</string>
+
+
+
+    <!--Preferences-->
+    <string-array name="pref_temperature_units_list_titles">
+        <item>°C</item>
+        <item>°F</item>
+        <item>K</item>
+    </string-array>
+    <string-array name="pref_temperature_units_values">
+        <item>metric</item>
+        <item>imperial</item>
+        <item>""</item>
+    </string-array>
+
+    <string name="pref_title_number_of_cities">Number of Locations</string>
+    <string name="pref_default_number_of_cities">15</string>
+
+    <string name="pref_title_temperature_units">Temperature Units</string>
+    <string name="pref_key_temperature_units">temperature_units</string>
+    <string name="pref_temperature_units_default">metric</string>
+    <string name="pref_key_number_of_cities">number_of_cities</string>
+
+
+</resources>

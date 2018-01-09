@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_number_of_cities"
+        android:inputType="number"
+        android:key="@string/pref_key_number_of_cities"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_number_of_cities" />
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+    <ListPreference
+        android:defaultValue="C"
+        android:entries="@array/pref_temperature_units_list_titles"
+        android:entryValues="@array/pref_temperature_units_values"
+        android:key="@string/pref_key_temperature_units"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_temperature_units" />
+
+</PreferenceScreen>

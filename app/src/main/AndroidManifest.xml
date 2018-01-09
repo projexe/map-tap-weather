@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.projexe.maptapweather">
+
+    <!-- INTERNET permission required for accessing Open Weather Map API -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- ACCESS_FINE_LOCATION permission required for getting current location data -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/weather_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/weather_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_api_key" />
+
+        <activity
+            android:name="com.projexe.maptapweather.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.projexe.maptapweather.SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName="com.projexe.maptapweather.MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projexe.maptapweather.MainActivity" />
+        </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="b53483f0ff25b9a4f93a974036f695d1ac253490"
+            />
+
+    </application>
+
+</manifest>

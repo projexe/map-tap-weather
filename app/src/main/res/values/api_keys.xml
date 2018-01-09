@@ -1,0 +1,4 @@
+<resources>
+    <string name="google_maps_api_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDo9HzH_lfd1VjYzQDhJg_wX9cOOdNqYXw</string>
+    <string name="open_weather_maps_api_key" translatable="false">b46b55759449086fa6df738764b7cdb1</string>
+</resources>
