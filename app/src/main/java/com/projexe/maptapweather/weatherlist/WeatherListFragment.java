@@ -25,8 +25,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.projexe.maptapweather.R;
-import com.projexe.maptapweather.model.utils.Injection;
 import com.projexe.maptapweather.model.PermissionUtils;
+import com.projexe.maptapweather.model.utils.Injection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,10 +105,7 @@ public class WeatherListFragment extends Fragment implements IWeatherListContrac
         mRecyclerView.addItemDecoration(itemDecoration);
 
         // Initialise the Presenter.
-        // mAskOdometerPresenter is used to call methods on the Presenter. Pass the constructor a reference
-        // to this and inject a reference to a new Bike Repository (the Model layer)
         // The model will hold a reference to the context in order to get the preferences
-
         mPresenter = new WeatherListPresenter(this, Injection.provideModel(getActivity().getApplicationContext()));
 
         mPresenter.fetchPersistedWeather();
