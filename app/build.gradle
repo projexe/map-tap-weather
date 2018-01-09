@@ -1,0 +1,111 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+// Fabric plugin for Crashlytics
+apply plugin: 'io.fabric'
+
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.projexe.maptapweather"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 2
+        versionName "0.9"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // added to ask compiler to use Java8 (to use lambda expressions)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    flavorDimensions "version"
+
+    // If you need to add more flavors, consider using flavor dimensions.
+    productFlavors {
+        mock {
+            applicationIdSuffix = ".mock"
+            dimension "version"
+        }
+        prod {
+            dimension "version"
+        }
+    }
+
+    // Remove mockRelease as it's not needed.
+    android.variantFilter { variant ->
+        if (variant.buildType.name.equals('release')
+                && variant.getFlavors().get(0).name.equals('mock')) {
+            variant.setIgnore(true);
+        }
+    }
+
+    dependencies {
+        implementation fileTree(include: ['*.jar'], dir: 'libs')
+        implementation 'com.android.support:appcompat-v7:26.1.0'
+        implementation 'com.android.support:preference-v14:26.1.0'
+        implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+        implementation 'com.android.support:design:26.1.0'
+        implementation 'com.android.support:transition:26.1.0'
+        implementation 'com.google.android.gms:play-services-maps:11.6.2'
+
+        // Dependencies for Retrofit / GSON
+        implementation 'com.google.code.gson:gson:2.8.2'
+        implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+        implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+        // Dependencies for RxJava - handles asynchronous threads / 'observables'
+//        implementation 'io.reactivex:rxjava:1.2.3'
+//        implementation 'io.reactivex:rxandroid:1.2.1'
+//        implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+
+        // Dependencies for Dagger2. Dependency Injection framework
+//        implementation 'com.google.dagger:dagger-android:2.11'
+//        implementation 'com.google.dagger:dagger-android-support:2.11' // if you use the support libraries
+//        annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
+//        annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+
+        // Dependencies for Crashlytics. TBC
+        compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
+            transitive = true;
+        }
+        // Dependencies for LeakCanary TBC
+
+        // Dependencies for "Room"
+        implementation "android.arch.persistence.room:runtime:1.0.0"
+        annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+        androidTestImplementation "android.arch.persistence.room:testing:1.0.0"
+
+        //TESTING DEPENDENCIES
+        testImplementation 'junit:junit:4.12'
+        testImplementation 'org.mockito:mockito-core:2.7.6'
+        androidTestImplementation 'com.android.support.test:runner:1.0.1'
+        androidTestImplementation "com.android.support.test:rules:1.0.1"
+        androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+        androidTestImplementation "com.android.support.test.espresso:espresso-contrib:3.0.1"
+        // Robolectric
+        testImplementation "org.robolectric:robolectric:3.5.1"
+
+        android {
+            testOptions {
+                unitTests {
+                    includeAndroidResources = true
+                }
+            }
+        }
+    }
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
